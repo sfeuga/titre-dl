@@ -1,6 +1,11 @@
 *.*~
 .*~
 *.doc
+*.lyx
+
+images/*.png
+images/*.pdf
+images/*.jpg
 
 # Created by http://www.gitignore.io
 
