@@ -7,6 +7,10 @@ images/*.png
 images/*.pdf
 images/*.jpg
 
+Sources/*.*~
+Sources/*.pdf
+Sources/*.svg
+
 # Created by http://www.gitignore.io
 
 ### LaTeX ###
