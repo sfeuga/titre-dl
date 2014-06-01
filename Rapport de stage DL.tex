@@ -2,7 +2,11 @@
 
 \usepackage{microtype}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[bookmarks=false,colorlinks,linkcolor=black]{hyperref}
 \usepackage{float}
+\usepackage{listings}
+\usepackage{color}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
 \usepackage[left=1.00cm, right=1.00cm, top=1.00cm, bottom=2.00cm]{geometry}
@@ -11,6 +15,10 @@
 Titre Développeur Logiciel}\\
 {\normalsize Stage du 02/04/2014 au 31/05/2014 pour l'association Uncanny}}
 \date {En date du 02/06/2014}
+
+\definecolor{mygray}{rgb}{0.9,0.9,0.9}
+
+
 \begin{document}
 
 \maketitle
@@ -36,8 +44,8 @@ This page intentionally left blank
 		\paragraph*{\indent Compétence Obligatoire :} Développer une interface utilisateur (page 19 du REAC et page 8 du RC).
 		\paragraph*{\indent Compétence Choisie :} Mettre en œuvre une solution de gestion de contenu ou d’e-commerce (page 22 du REAC et page 8 ru RC).
 	\section{Remerciements}
-		\paragraph*{}Tout d'abord, je souhaite  remercier Mr Cédric CHERDEL et Mr Laurent CEBE de l'association Uncanny qui m'ont offert la possibilité d'avoir un sujet de stage en adéquation avec mes capacités et les compétences à mettre en œuvre pour la validation de ce stage.
-		\paragraph*{}Je souhaite aussi remercier Gabriel BLOCK, Emanuelle FERRAND, Erwan FOURNEL et Florence \linebreak NATIVELLE, de l'I.M.I.E., pour leurs implications dans cette formation.
+		\paragraph*{}Tout d'abord, je souhaite  remercier M. Cédric CHERDEL et M. Laurent CEBE de l'association Uncanny qui m'ont offert la possibilité d'avoir un sujet de stage en adéquation avec mes capacités et les compétences à mettre en œuvre pour la validation de ce stage.
+		\paragraph*{}Je souhaite aussi remercier Gabriel BLOCK, Emanuelle FERRAND, Erwan FOURNEL et Florence \linebreak NATIVELLE, de l'I.M.I.E., pour leurs implications et leurs aides tout au long de cette formation.
 		\paragraph*{}Je souhaite enfin remercier Ada Lovelace\footnote{https://fr.wikipedia.org/wiki/Ada\_Lovelace} sans qui nous ne serions pas là.
 
 \chapter{Mission}
@@ -45,8 +53,8 @@ This page intentionally left blank
 		Le projet est la mise en place de deux sites internet pour promouvoir les projets et activités de l'association Uncanny et plus particulièrement de Cédric Cherdel. 
 		\subsection{Objectifs}
 			\begin{enumerate}
-				\item Une page d'accueil animé donnant accès aux contenus.\\
-				Cette page sera en HTML5 et animé avec CSS3 et jQuery.
+				\item Une page d'accueil animée donnant accès aux contenus.\\
+				Cette page sera en HTML5 et animée avec CSS3 et jQuery.
 				\item Création d'un thème en HTML5 pour un CMS.
 				\item Un site internet sur la production de danse contemporaine.\\
 				Mise en place du CMS.
@@ -74,16 +82,16 @@ This page intentionally left blank
 				\item Des documentations sur les projets de danse
 			\end{itemize}
 	\section{Fonctionnalités \& Contraintes}
-		\paragraph*{}En tout premier lieu, j'ai aidé par un questionnaire de question simples (pour qui, pour quoi, comment, avec quoi...) à définir les principales fonctionnalités ainsi que les contraintes liées.
+		\paragraph*{}En tout premier lieu, j'ai aidé par un questionnaire simple (pour qui, pour quoi, comment, avec quoi...) à définir les principales fonctionnalités ainsi que les contraintes liées.
 		\paragraph*{}La scission en deux site distinct, à été rapidement abordé car dans l'avenir, l'activité de Massage sera indépendante de l'association pour des raisons fiscales. J'ai donc proposé plusieurs options de réalisation par site, à savoir de simples" sites en HTML, la mise en place de Wordpress\footnote{http://wordpress.org/}, ou encore l'utilisation du CMS JekyllRB\footnote{http://jekyllrb.com/} qui à la particularité d'être très flexible, d'utiliser le Markdown\footnote{http://daringfireball.net/projects/markdown/} pour la rédaction des articles et de ne pas avoir besoin de moteur de base de donné pour fonctionner.
-		\paragraph*{}Dans un premier temps, j'ai proposé la solution déjà éprouvé de Wordpress pour la réalisation des premier tests. J'ai donc commencé par définir les actions des différents acteurs (voir la modélisation UML plus loin dans ce rapport). Puis j'ai proposé l'utilisation de licence GNU pour l'intégralité du projet ce qui à été très favorablement accepté, nous avons aussi défini le périmètre des applications (Sites Web).
-		\paragraph*{}Lors de ma présentation des avantages et inconvénients des licences libres et plus particulièrement les licences\footnote{http://www.gnu.org/licenses/licenses.html} GNU/GPL v3, GNU/LGPL v3, GNU/AGPL v3 et GNU FDL v1.3, j'ai indiqué qu'une bonne pratique serai d'utilisé des outils de production libres, notre choix c'est donc porté sur Inkscape\footnote{http://www.inkscape.org/fr/}, GIMP\footnote{http://www.gimp.org/}, Vim\footnote{http://www.vim.org/} ainsi \LaTeX \footnote{http://www.latex-project.org/}. L'utilisation de systèmes d'exploitation libre à aussi été retenu, lors de ce développement, nous utiliserons Fedora ainsi que Debian pour le serveur de production.\\
-		L'utilisation de ces licences est tout à fait dans l'esprit de partage que l'on retrouve dans les spectacles de danse contemporaine, c'est dans cette logique qu'à été créer l'association Uncanny.
-		\paragraph*{}Une des principales contrainte était d'avoir un système simple à modifié tans sur le contenu que sur le plan graphique. Au autre contrainte est d'avoir un système très simple à sauvegarder et a remettre en œuvre lors de pannes ou de mauvaises utilisations. La réalisation de site web en HTML pur à donc été écarté car la complexité requise lors de modification ne correspond pas aux attentes du client.
+		\paragraph*{}Dans un premier temps, j'ai proposé la solution déjà éprouvée de Wordpress pour la réalisation des premiers tests. J'ai donc commencé par définir les actions des différents acteurs (voir la modélisation UML plus loin dans ce rapport). Puis j'ai proposé l'utilisation de licence GNU pour l'intégralité du projet ce qui à été très favorablement accepté, nous avons aussi défini le périmètre des applications (Sites Web).
+		\paragraph*{}Lors de ma présentation des avantages et inconvénients des licences libres et plus particulièrement les licences\footnote{http://www.gnu.org/licenses/licenses.html} GNU/GPL v3, GNU/LGPL v3, GNU/AGPL v3 et GNU FDL v1.3, j'ai indiqué qu'une bonne pratique serait d'utilisé des outils de production libres, notre choix c'est donc porté sur Inkscape\footnote{http://www.inkscape.org/fr/}, GIMP\footnote{http://www.gimp.org/}, Vim\footnote{http://www.vim.org/} ainsi \LaTeX \footnote{http://www.latex-project.org/}. L'utilisation de systèmes d'exploitation libre à aussi été retenue, lors de ce développement, nous utiliserons Fedora ainsi que Debian pour le serveur de production.\\
+		L'utilisation de ces licences est tout à fait dans l'esprit de partage que l'on retrouve dans les spectacles de danse contemporaine, c'est dans cette logique qu'a été créer l'association Uncanny.
+		\paragraph*{}Une des principales contrainte était d'avoir un système simple à modifier tans sur le contenu que sur le plan graphique. Au autre contrainte est d'avoir un système très simple à sauvegarder et à remettre en œuvre lors de pannes ou de mauvaises utilisations. La réalisation de site web en HTML pur à donc été écarté car la complexité requise lors de modification ne correspond pas aux attentes du client.
 		\paragraph*{}Dans un second temps, j'ai réalisé deux présentations, la première sur Wordpress et l'autre sur JekyllRB.
-		Wordpress à l'avantage d'être très simple à modifier pour peux que l'on souhaite se basé sur un thème existant, le nombre de greffons disponibles est aussi l'assurance de réaliser divers fonctions très simplement.
-		\paragraph*{}JekyllRB à quand à lui l'avantage de produire des sites statiques sans besoin de base de donnée. Les sites produits sont plus rapide à chargé qu'un site sous Wordpress. L'autre avantage est que sa modification graphique ce fait uniquement des fichiers plats (fichier CSS et fichier HTML ou Markdown). ils ne nécessite que peux de compétences (du CSS, et peu d'HTML, des duplication de fichiers et de l'huile de coude). Enfin la sauvegarde de l'intégralité du site se fait par une simple copie de dossier, tout étant des fichiers (pas de moteur de base de donnée). La production de nouveau articles ou description de projet se fait soir en HTML ou en Markdown.
-		\paragraph*{}Lors de la validation du périmètre de l'application et du cahier des charges, JekyllRB à été retenu pour ces projets avec une possibilité de passage à Wordpress si le nombre d'article augmente fortement.
+		Wordpress à l'avantage d'être très simple à modifier pour peu que l'on souhaite se baser sur un thème existant, le nombre de greffons disponibles est aussi l'assurance de réaliser divers fonctions très simplement.
+		\paragraph*{}JekyllRB à quand à lui l'avantage de produire des sites statiques sans besoin de base de donnée. Les sites produits sont plus rapide à charger qu'un site sous Wordpress. L'autre avantage est que sa modification graphique se fait uniquement des fichiers plats (fichier CSS et fichier HTML ou Markdown). ils ne nécessite que peu de compétences (du CSS, et peu d'HTML, des duplication de fichiers et de l'huile de coude). Enfin la sauvegarde de l'intégralité du site se fait par une simple copie de dossier, tout étant des fichiers (pas de moteur de base de donnée). La production de nouveaux articles ou description de projet se fait soit en HTML ou en Markdown.
+		\paragraph*{}Lors de la validation du périmètre de l'application et du cahier des charges, JekyllRB a été retenu pour ces projets avec une possibilité de passage à Wordpress si le nombre d'article augmente fortement.
 		\newpage
 
 	\section{L'Expérience Utilisateur et l'Accessibilité}
@@ -132,13 +140,13 @@ This page intentionally left blank
 					\centering
 					\includegraphics[height=10cm]{Mockup-Danse_1.eps}
 					\caption{Mockup page d'accueil du site "Danse"}
-					\label{fig:Mockup Danse}
+					\label{fig:Mockup Danse Accueil}
 				\end{figure}
 				\begin{figure}[H]
 					\centering
 					\includegraphics[height=10cm]{Mockup-Danse_2.eps}
 					\caption{Mockup page projets du site "Danse"}
-					\label{fig:Mockup Danse}
+					\label{fig:Mockup Danse Projet}
 				\end{figure}\newpage
 
 	\section{Planning: méthodes et outils}
@@ -207,35 +215,70 @@ This page intentionally left blank
 				\paragraph*{}Ces schémas sont assez simple, mais m'ont permis d'expliquer plus simplement les fonctionnalités demandés. Une première version, avec des fonctionnalités n'apparaissant pas sur ces schémas, contenait une authentification des utilisateurs su site massage, un système de réservation de rendez-vous en ligne, la création et l'édition de newsletter depuis les sites via un back-office prévu à cette effet.
 				\paragraph*{}Lors d'une séance de brainstorming, il est apparu que la prise de rendez-vous par les clients n'était pas souhaitable car ça impliquais de maintenir un calendrier de disponibilité à jours, ce qui n'est pas le cas actuellement. Pour ce qui est de la réalisation de newsletter, nous avons mis en place des modèles d'email réutilisable utilisant la charte graphique, ce qui à permis de ne pas développer des outils inutiles.
 				\paragraph*{}Nous avons donc choisi de réalisé des sites plus simple mais répondant mieux aux besoins.
-				\begin{figure}[H]
-					\centering
-					\includegraphics[height=10cm]{UseCase-Massage-User.eps}
-					\caption[Use Case Utilisateur Massage]{Use Case d'un Utilisateur pour le site "Massage"}
-					\label{fig:UseCase-Massage_User}
-				\end{figure}
-				\begin{figure}[H]
-					\centering
-					\includegraphics[height=10cm]{UseCase-Massage-Administrateur.eps}
-					\caption[Use Case Administrateur Massage]{Use Case de l'administrateur pour le site "Massage"}
-					\label{fig:UseCase-Massage_Admin}
-				\end{figure}
-				\begin{figure}[H]
-					\centering
-					\includegraphics[height=10cm]{UseCase-Danse-User.eps}
-					\caption[Use Case Utilisateur Danse]{Use Case d'un Utilisateur pour le site "Danse"}
-					\label{fig:UseCase-Danse_User}
-				\end{figure}
-				\begin{figure}[H]
-					\centering
-					\includegraphics[height=10cm]{UseCase-Danse-Administrateur.eps}
-					\caption[Use Case Administrateur Danse]{Use Case de l'administrateur pour le site "Danse"}
-					\label{fig:UseCase-Danse_Admin}
-				\end{figure}
+					\subparagraph*{Massage}Au départ, nous avons défini que peu de pages pour ce site, les informations importantes sont la biographie de Cédric, une page de contact avec un moyen de s'abonner à la newsletter et une description des types de massages proposés. L'administrateur du site doit-être en mesure de modifier rapidement toutes ces informations.
+						\begin{figure}[H]
+							\centering
+							\includegraphics[width=10cm]{UseCase-Massage-User.eps}
+							\caption[Use Case Utilisateur Massage]{Use Case d'un Utilisateur pour le site "Massage"}
+							\label{fig:UseCase-Massage User}
+						\end{figure}
+						\begin{figure}[H]
+							\centering
+							\includegraphics[width=10cm]{UseCase-Massage-Administrateur.eps}
+							\caption[Use Case Administrateur Massage]{Use Case de l'administrateur pour le site "Massage"}
+							\label{fig:UseCase-Massage Admin}
+						\end{figure}
+					\subparagraph*{Danse}
+						\begin{figure}[H]
+							\centering
+							\includegraphics[width=12cm]{UseCase-Danse-User.eps}
+							\caption[Use Case Utilisateur Danse]{Use Case d'un Utilisateur pour le site "Danse"}
+							\label{fig:UseCase-Danse User}
+						\end{figure}
+						\begin{figure}[H]
+							\centering
+							\includegraphics[width=16cm]{UseCase-Danse-Administrateur.eps}
+							\caption[Use Case Administrateur Danse]{Use Case de l'administrateur pour le site "Danse"}
+							\label{fig:UseCase-Danse Admin}
+						\end{figure}
 				\newpage
 				
 	\section{Test \& Qualité}
 		\subsection{Fonctionnel}
-		\subsection{Intégration}
+			\paragraph*{}Les test fonctionnel ont été réalisé au fil de l'eau pendant le développement. j'ai créer des posts, projets et autres documents afin de tester et valider toutes les fonctionnalités. En voici un exemple:
+			
+			\lstset{numbers=left, stepnumber=1, frame=single, caption=fichier Markdown d'un post, breaklines=true, backgroundcolor=\color{mygray}, 
+			literate=
+			  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+			  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+			  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+			  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+			  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+			  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+			  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+			  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+			  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+			  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+			  {€}{{\EUR}}1 {£}{{\pounds}}1
+			}
+			\begin{lstlisting}
+---
+layout:         post
+title:          "Nouveau projet: Catalogues Des Possibles"
+date:           2014-05-01 11:10:18
+categories:     Projets Production
+
+thumbnail:      '/images/possibles/1.jpg'
+
+video:          '/videos/possibles/1.jpg'
+	mp4:            '/videos/possibles/1.mp4'
+	webm:           '/videos/possibles/1.webm'
+	ogv:            '/videos/possibles/1.ogg'
+---
+Catalogue des possibles est un projet de création de pièces de danse. Ces pièces sont pensées dans des formats de courte durée. Chaque pièce expérimente un procédé d'écriture différent.
+you can [get the PDF]({{ site.url }}/pdf/possibles/1.pdf) directly.
+			 \end{lstlisting}
+			 
 
 \chapter{Développement}
 	\section{Technologies}
@@ -285,7 +328,6 @@ This page intentionally left blank
 	\end{enumerate}
 
 
-\listoffigures \pagenumbering{Roman}
-\listoftables
+\listoffigures
 
 \end{document}
