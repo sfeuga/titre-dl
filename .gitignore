@@ -1,13 +1,18 @@
 *.*~
 .*~
-#*.doc
+
+*.zip
+
+*.doc
 *.lyx
 
 images/*.png
 images/*.pdf
 images/*.jpg
 
+Sources/*.*
 Sources/*.*~
+Sources/Screencapture/*.*
 Sources/*.pdf
 Sources/*.svg
 
